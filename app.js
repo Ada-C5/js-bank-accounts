@@ -4,8 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var massive = require('massive');
 
 var app = module.exports = express();
+
+// database setup
+var connectionString = "postgres://localhost/bank-accounts_" + app.get('env');
+var db = massive.connectSync({connectionString: connectionString});
+app.set('db', db);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
