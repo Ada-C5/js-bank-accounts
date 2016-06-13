@@ -1,0 +1,29 @@
+{
+  "name": "bank-accounts",
+  "version": "1.0.0",
+  "description": "Bank Accounts project in Node.js and Express",
+  "main": "app.js",
+  "scripts": {
+    "test": "clear; ./node_modules/.bin/jasmine-node --verbose spec/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ada-C5/js-bank-accounts.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "author": "Ada Developers Academy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ada-C5/js-bank-accounts/issues"
+  },
+  "homepage": "https://github.com/Ada-C5/js-bank-accounts#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
