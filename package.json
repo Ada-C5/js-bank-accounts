@@ -4,7 +4,9 @@
   "description": "Bank Accounts project in Node.js and Express",
   "main": "app.js",
   "scripts": {
+    "setup": "node ./setup.js",
     "start": "./node_modules/.bin/nodemon ./bin/www",
+    "start-test": "NODE_ENV=test ./node_modules/.bin/nodemon ./bin/www",
     "test": "clear; ./node_modules/.bin/jasmine-node --verbose spec/"
   },
   "repository": {
