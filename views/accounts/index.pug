@@ -1,0 +1,27 @@
+extends ../layout.pug
+
+mixin actions(id)
+  form(method="post")
+    input(type="text", name="amount")
+    button(formaction=`/accounts/${id}/deposit`) Deposit
+    button(formaction=`/accounts/${id}/withdraw`) Withdraw
+  form(method="get", action=`/accounts/${id}/transfer`)
+    select(name="recipient")
+      each account in locals.accounts
+        - if(account.id != id)
+          option(value=id) Account #{id}
+    button Transfer
+
+block content
+  h1 Account List
+  table
+    thead
+      tr
+        th Account ID
+        th Actions
+    tbody
+      each account in locals.accounts
+        tr
+          td= account.id
+          td
+            +actions(account.id)
