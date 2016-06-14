@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var AccountsController = require('../controllers/accounts_controller.js')
 
-/* GET accounts listing. */
-router.get('/', function(req, res, next) {
-  // YOUR CODE HERE
-});
+/* GET account details. */
+router.get('/:id', AccountsController.show);
 
 module.exports = router;

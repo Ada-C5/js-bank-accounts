@@ -1,0 +1,13 @@
+extends ../layout.pug
+
+block content
+  h1 Account Details
+  table
+    thead
+      tr
+        th Account ID
+        th Account Balance
+    tbody
+      tr
+        td= locals.account.id
+        td= locals.account.balance
