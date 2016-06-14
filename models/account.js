@@ -51,8 +51,8 @@ Account.create = function(initialBalance, callback) {
   db.accounts.save({
     balance: initialBalance
   }, function(error, account) {
-    if(error) {
-      callback(error, undefined);
+    if(error || !account) {
+      callback(error || new Error("Could not create account"), undefined);
     } else {
       callback(null, new Account(account.id));
     }
@@ -69,8 +69,8 @@ Account.createSync = function(initialBalance) {
 
 Account.all = function(callback) {
   db.accounts.find(function(error, accounts) {
-    if(error) {
-      callback(error, undefined);
+    if(error || !accounts) {
+      callback(error || new Error("Could not retrieve accounts"), undefined);
     } else {
       callback(null, accounts.map(function(account) {
         return new Account(account.id);
@@ -81,8 +81,8 @@ Account.all = function(callback) {
 
 Account.find = function(id, callback) {
   db.accounts.findOne({id: id}, function(error, account) {
-    if(error) {
-      callback(error, undefined);
+    if(error || !account) {
+      callback(error || new Error("Account not found"), undefined);
     } else {
       callback(null, new Account(account.id));
     }
