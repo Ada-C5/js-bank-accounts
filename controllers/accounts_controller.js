@@ -8,9 +8,10 @@ var AccountsController = {
         err.status = 500;
         next(err);
       } else {
-        res.render("accounts/index", {
-          accounts: accounts
-        });
+        res.json(accounts)
+        // res.render("accounts/index", {
+        //   accounts: accounts
+        // });
       }
     });
   },

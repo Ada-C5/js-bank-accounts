@@ -89,4 +89,11 @@ Account.find = function(id, callback) {
   });
 };
 
+// only attach this function if we're in test mode
+if (app.get('env') === 'test') {
+  Account.close_connection = function() {
+    console.log("closing connection")
+    db.end()
+  }
+}
 module.exports = Account;
